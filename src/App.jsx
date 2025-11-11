@@ -18,6 +18,12 @@ function App() {
     setNewArticle("");
   }
  
+  function deleteElem(id) {
+   const updatedArticles = articles.filter((curArticle) => curArticle.id != id 
+    )
+    setArticles(updatedArticles);
+  };
+
   
   return (
     <>
@@ -50,8 +56,13 @@ function App() {
             <ul className="text-center">
 
               {articles.map(curData=> (
-                <li key={curData.id} className="list-group">
+                <li key={curData.id} className="list-group d-flex align-items-center flex-row justify-content-between">
                   <h3 className="py-4">{curData.titolo}</h3>
+                  <button
+                  onClick={() =>
+                    deleteElem(curData.id)
+                  } 
+                  className="btn btn-outline-danger">cancella</button>
                  {/*  <p>{curData.contenuto}</p> */}
                 </li>
               ))}
