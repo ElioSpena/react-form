@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Form from "./Form";
+import List from "./List";
 
 export default function Main({musicBlogArticles}) {
 
@@ -41,15 +42,13 @@ return (
             <ul className="text-center list-group">
 
               {articles.map(curData=> (
-                <li key={curData.id} className="list-item d-flex align-items-center flex-row justify-content-between">
-                  <h3 className="py-4">{curData.titolo}</h3>
-                  <button
-                  onClick={() =>
-                    deleteElem(curData.id)
-                  } 
-                  className="btn btn-outline-danger">cancella</button>
-                 {/*  <p>{curData.contenuto}</p> */}
-                </li>
+                <List 
+                key={curData.id} 
+                titolo={curData.titolo}
+                id={curData.id}
+                onClick={() =>
+                    deleteElem(curData.id)}
+                />
               ))}
 
             </ul>

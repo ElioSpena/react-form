@@ -1,3 +1,5 @@
+import Button from "./Button"
+
 export default function Form({onSubmit, onChange, value, text}) {
     return (
              <form
@@ -10,9 +12,10 @@ export default function Form({onSubmit, onChange, value, text}) {
             className="form-control mb-3"
             type="text" />
 
-            <button
-            className="btn btn-primary mb-4">
-              {text}</button>
+            <Button
+            className={"btn btn-primary mb-4"}
+            text={"Aggiungi Articolo"}
+            />
           </form>
     )
 }
